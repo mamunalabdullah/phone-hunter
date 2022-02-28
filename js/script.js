@@ -10,3 +10,9 @@ const findPhone = () => {
     .then(res => res.json())
     .then(data => console.log(data));
 }
+
+const displayFindPhone = (phones) => {
+    phones.forEach(phone => {
+        console.log(phone);
+    });
+}
