@@ -40,6 +40,7 @@ const findPhone = () => {
 }
 
 const displayFindPhone = (phones) =>{
+    
     phones.forEach(phone => {
         console.log(phone);
         const div = document.createElement("div");
@@ -68,6 +69,9 @@ const getPhoneDetails = (phoneId) => {
 }
 
 const displayPhoneDetails = (details) => {
+    // clear value of details 
+    phoneDetails.innerHTML = "";
+    
     console.log(details);
     const div = document.createElement("div");
     div.classList.add("col-md-4");
