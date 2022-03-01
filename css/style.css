@@ -4,3 +4,11 @@ body{
 #error, #spinner{
     display: none;
 }
+
+/* responsive  */
+
+@media (max-width: 767px ) {
+    .search-box{
+        width: 75%;
+    }
+}

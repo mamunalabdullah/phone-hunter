@@ -30,7 +30,7 @@ const findPhone = () => {
                 document.getElementById("error").style.display = "block";
             } else {
                 document.getElementById("error").style.display = "none";
-                displayFindPhone(data.data);
+                displayFindPhone(data.data.slice(0, 20));
             }
         });
     
