@@ -47,7 +47,18 @@ const displayPhoneDetails = (details) => {
         <img src="${details.image}" class="card-img-top" alt="image of ${details.name}">
         <div class="card-body">
             <h5 class="card-title">${details.name}</h5>
+            <h6 class="card-title">${details.releaseDate}</h6>
+            <p>Chipset: ${details.mainFeatures.chipSet}</p>
+            <p>Display Size: ${details.mainFeatures.displaySize}</p>
+            <p>Memory: ${details.mainFeatures.memory}</p>
+            <p>Storage: ${details.mainFeatures.storage}</p>
+            <p>Sensors: ${details.mainFeatures.sensors}</p>
         </div>
     </div>
     `;
 }
+// chipSet: "Apple A15 Bionic (5 nm)"
+// displaySize: "6.7 inches, 109.8 cm2 (~87.4% screen-to-body ratio)"
+// memory: "128GB 6GB RAM, 256GB 6GB RAM, 512GB 6GB RAM, 1TB 6GB RAM"
+// sensors: (6) ['Face ID', 'accelerometer', 'gyro', 'proximity', 'compass', 'barometer']
+// storage: "128GB/256GB/1TB storage, no card slot"
