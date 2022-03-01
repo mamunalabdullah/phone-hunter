@@ -24,7 +24,7 @@ const findPhone = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log(data.data[0]);
+            // console.log(data.data[0]);
             if (data.data[0] == undefined) {
                 toggleSpinner("none");
                 document.getElementById("error").style.display = "block";
@@ -45,7 +45,7 @@ const displayFindPhone = (phones) =>{
         const div = document.createElement("div");
         div.classList.add("col-md-4");
         div.innerHTML = `
-            <div class="card mb-4">
+            <div class="card mb-4 p-3">
                 <img src="${phone.image}" class="card-img-top" alt="image of ${phone.phone_name}">
                 <div class="card-body">
                     <h5 class="card-title">${phone.phone_name}</h5>

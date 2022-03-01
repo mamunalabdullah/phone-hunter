@@ -1,3 +1,6 @@
+body{
+    background-color: #c7ecee;
+}
 #error, #spinner{
     display: none;
 }
