@@ -23,7 +23,16 @@ const findPhone = () => {
     
         fetch(url)
         .then(res => res.json())
-        .then(data => displayFindPhone(data.data));
+        .then(data => {
+            console.log(data.data[0]);
+            if (data.data[0] == undefined) {
+                toggleSpinner("none");
+                document.getElementById("error").style.display = "block";
+            } else {
+                document.getElementById("error").style.display = "none";
+                displayFindPhone(data.data);
+            }
+        });
     
          // clear value
          searchInput.value = ""; 
