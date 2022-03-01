@@ -69,8 +69,10 @@ const getPhoneDetails = (phoneId) => {
 
 const displayPhoneDetails = (details) => {
     console.log(details);
-    phoneDetails.innerHTML =`
-    <div class="card">
+    const div = document.createElement("div");
+    div.classList.add("col-md-4");
+    div.innerHTML =`
+    <div class="card p-3 mb-4">
         <img src="${details.image}" class="card-img-top" alt="image of ${details.name}">
         <div class="card-body">
             <h5 class="card-title">${details.name}</h5>
@@ -83,4 +85,5 @@ const displayPhoneDetails = (details) => {
         </div>
     </div>
     `;
+    phoneDetails.appendChild(div);
 }
