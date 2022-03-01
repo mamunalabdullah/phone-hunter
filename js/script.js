@@ -4,13 +4,30 @@ const searchButton = document.getElementById("search-btn");
 const phoneDiv = document.getElementById("phone-card");
 const phoneDetails = document.getElementById("details-card");
 
+const toggleSpinner = (displayStyle) => {
+    document.getElementById("spinner").style.display = displayStyle;
+}
+
 const findPhone = () => {
+    // clear value of search items
+    phoneDiv.innerHTML = "";
+    phoneDetails.innerHTML = "";
+
     const searchInputValue = searchInput.value;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInputValue}`;
+    toggleSpinner("block")
+    if (searchInputValue == "") {
+        document.getElementById("error").style.display = "block";
+    } else {
+        document.getElementById("error").style.display = "none";
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchInputValue}`;
     
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displayFindPhone(data.data));
+        fetch(url)
+        .then(res => res.json())
+        .then(data => displayFindPhone(data.data));
+    
+         // clear value
+         searchInput.value = ""; 
+    }
 }
 
 const displayFindPhone = (phones) =>{
@@ -30,6 +47,7 @@ const displayFindPhone = (phones) =>{
         `;
         phoneDiv.appendChild(div);
     });
+    toggleSpinner("none");
 }
 
 const getPhoneDetails = (phoneId) => {
@@ -57,8 +75,3 @@ const displayPhoneDetails = (details) => {
     </div>
     `;
 }
-// chipSet: "Apple A15 Bionic (5 nm)"
-// displaySize: "6.7 inches, 109.8 cm2 (~87.4% screen-to-body ratio)"
-// memory: "128GB 6GB RAM, 256GB 6GB RAM, 512GB 6GB RAM, 1TB 6GB RAM"
-// sensors: (6) ['Face ID', 'accelerometer', 'gyro', 'proximity', 'compass', 'barometer']
-// storage: "128GB/256GB/1TB storage, no card slot"
